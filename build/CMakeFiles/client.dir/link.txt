@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/client.dir/client.c.o -o client  -lzmq 
+/usr/bin/cc CMakeFiles/client.dir/test/client.c.o -o client  -lzmq 

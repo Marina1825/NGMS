@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/marina/Zero/server.c" "CMakeFiles/server.dir/server.c.o" "gcc" "CMakeFiles/server.dir/server.c.o.d"
+  "/home/marina/NGMS/test/server.c" "CMakeFiles/server.dir/test/server.c.o" "gcc" "CMakeFiles/server.dir/test/server.c.o.d"
   )
 
 # Targets to which this target links.

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marina/Zero
+CMAKE_SOURCE_DIR = /home/marina/NGMS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marina/Zero/build
+CMAKE_BINARY_DIR = /home/marina/NGMS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/Zero/build/CMakeFiles /home/marina/Zero/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles /home/marina/NGMS/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/Zero/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,53 +142,53 @@ server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
 
-client.o: client.c.o
-.PHONY : client.o
+test/client.o: test/client.c.o
+.PHONY : test/client.o
 
 # target to build an object file
-client.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client.c.o
-.PHONY : client.c.o
+test/client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/test/client.c.o
+.PHONY : test/client.c.o
 
-client.i: client.c.i
-.PHONY : client.i
+test/client.i: test/client.c.i
+.PHONY : test/client.i
 
 # target to preprocess a source file
-client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client.c.i
-.PHONY : client.c.i
+test/client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/test/client.c.i
+.PHONY : test/client.c.i
 
-client.s: client.c.s
-.PHONY : client.s
+test/client.s: test/client.c.s
+.PHONY : test/client.s
 
 # target to generate assembly for a file
-client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client.c.s
-.PHONY : client.c.s
+test/client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/test/client.c.s
+.PHONY : test/client.c.s
 
-server.o: server.c.o
-.PHONY : server.o
+test/server.o: test/server.c.o
+.PHONY : test/server.o
 
 # target to build an object file
-server.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server.c.o
-.PHONY : server.c.o
+test/server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/test/server.c.o
+.PHONY : test/server.c.o
 
-server.i: server.c.i
-.PHONY : server.i
+test/server.i: test/server.c.i
+.PHONY : test/server.i
 
 # target to preprocess a source file
-server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server.c.i
-.PHONY : server.c.i
+test/server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/test/server.c.i
+.PHONY : test/server.c.i
 
-server.s: server.c.s
-.PHONY : server.s
+test/server.s: test/server.c.s
+.PHONY : test/server.s
 
 # target to generate assembly for a file
-server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server.c.s
-.PHONY : server.c.s
+test/server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/test/server.c.s
+.PHONY : test/server.c.s
 
 # Help Target
 help:
@@ -200,12 +200,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... client"
 	@echo "... server"
-	@echo "... client.o"
-	@echo "... client.i"
-	@echo "... client.s"
-	@echo "... server.o"
-	@echo "... server.i"
-	@echo "... server.s"
+	@echo "... test/client.o"
+	@echo "... test/client.i"
+	@echo "... test/client.s"
+	@echo "... test/server.o"
+	@echo "... test/server.i"
+	@echo "... test/server.s"
 .PHONY : help
 
 

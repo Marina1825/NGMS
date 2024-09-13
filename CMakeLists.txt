@@ -11,8 +11,8 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(PC_ZMQ REQUIRED libzmq)
 
 # Добавляем клиента и сервер
-add_executable(client client.c)
-add_executable(server server.c)
+add_executable(client test/client.c)
+add_executable(server test/server.c)
 
 # Указываем библиотеку ZeroMQ клиенту и серверу
 target_link_libraries(client ${PC_ZMQ_LIBRARIES})

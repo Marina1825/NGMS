@@ -1,4 +1,4 @@
-/home/marina/Zero/build/CMakeFiles/client.dir
-/home/marina/Zero/build/CMakeFiles/server.dir
-/home/marina/Zero/build/CMakeFiles/edit_cache.dir
-/home/marina/Zero/build/CMakeFiles/rebuild_cache.dir
+/home/marina/NGMS/build/CMakeFiles/client.dir
+/home/marina/NGMS/build/CMakeFiles/server.dir
+/home/marina/NGMS/build/CMakeFiles/edit_cache.dir
+/home/marina/NGMS/build/CMakeFiles/rebuild_cache.dir
