@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/marina/4_Curs/NGMS/tests/server.c" "CMakeFiles/server.dir/tests/server.c.o" "gcc" "CMakeFiles/server.dir/tests/server.c.o.d"
+  "/home/marina/4_Curs/NGMS/tests/live_capture.c" "CMakeFiles/live_capture.dir/tests/live_capture.c.o" "gcc" "CMakeFiles/live_capture.dir/tests/live_capture.c.o.d"
   )
 
 # Targets to which this target links.

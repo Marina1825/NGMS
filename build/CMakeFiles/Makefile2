@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marina/NGMS
+CMAKE_SOURCE_DIR = /home/marina/4_Curs/NGMS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marina/NGMS/build
+CMAKE_BINARY_DIR = /home/marina/4_Curs/NGMS/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/marina/NGMS/build
 # The main recursive "all" target.
 all: CMakeFiles/client.dir/all
 all: CMakeFiles/server.dir/all
+all: CMakeFiles/live_capture.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,6 +75,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/client.dir/clean
 clean: CMakeFiles/server.dir/clean
+clean: CMakeFiles/live_capture.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -83,14 +85,14 @@ clean: CMakeFiles/server.dir/clean
 CMakeFiles/client.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marina/NGMS/build/CMakeFiles --progress-num=1,2 "Built target client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marina/4_Curs/NGMS/build/CMakeFiles --progress-num=1,2 "Built target client"
 .PHONY : CMakeFiles/client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 0
 .PHONY : CMakeFiles/client.dir/rule
 
 # Convenience name for target.
@@ -109,14 +111,14 @@ CMakeFiles/client.dir/clean:
 CMakeFiles/server.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marina/NGMS/build/CMakeFiles --progress-num=3,4 "Built target server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marina/4_Curs/NGMS/build/CMakeFiles --progress-num=5,6 "Built target server"
 .PHONY : CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 0
 .PHONY : CMakeFiles/server.dir/rule
 
 # Convenience name for target.
@@ -127,6 +129,32 @@ server: CMakeFiles/server.dir/rule
 CMakeFiles/server.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/clean
 .PHONY : CMakeFiles/server.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/live_capture.dir
+
+# All Build rule for target.
+CMakeFiles/live_capture.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marina/4_Curs/NGMS/build/CMakeFiles --progress-num=3,4 "Built target live_capture"
+.PHONY : CMakeFiles/live_capture.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/live_capture.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/live_capture.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 0
+.PHONY : CMakeFiles/live_capture.dir/rule
+
+# Convenience name for target.
+live_capture: CMakeFiles/live_capture.dir/rule
+.PHONY : live_capture
+
+# clean rule for target.
+CMakeFiles/live_capture.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/clean
+.PHONY : CMakeFiles/live_capture.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marina/NGMS
+CMAKE_SOURCE_DIR = /home/marina/4_Curs/NGMS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marina/NGMS/build
+CMAKE_BINARY_DIR = /home/marina/4_Curs/NGMS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles /home/marina/NGMS/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles /home/marina/4_Curs/NGMS/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/NGMS/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,53 +142,90 @@ server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
 
-test/client.o: test/client.c.o
-.PHONY : test/client.o
+#=============================================================================
+# Target rules for targets named live_capture
+
+# Build rule for target.
+live_capture: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 live_capture
+.PHONY : live_capture
+
+# fast build rule for target.
+live_capture/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/build
+.PHONY : live_capture/fast
+
+tests/client.o: tests/client.c.o
+.PHONY : tests/client.o
 
 # target to build an object file
-test/client.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/test/client.c.o
-.PHONY : test/client.c.o
+tests/client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/tests/client.c.o
+.PHONY : tests/client.c.o
 
-test/client.i: test/client.c.i
-.PHONY : test/client.i
+tests/client.i: tests/client.c.i
+.PHONY : tests/client.i
 
 # target to preprocess a source file
-test/client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/test/client.c.i
-.PHONY : test/client.c.i
+tests/client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/tests/client.c.i
+.PHONY : tests/client.c.i
 
-test/client.s: test/client.c.s
-.PHONY : test/client.s
+tests/client.s: tests/client.c.s
+.PHONY : tests/client.s
 
 # target to generate assembly for a file
-test/client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/test/client.c.s
-.PHONY : test/client.c.s
+tests/client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/tests/client.c.s
+.PHONY : tests/client.c.s
 
-test/server.o: test/server.c.o
-.PHONY : test/server.o
+tests/live_capture.o: tests/live_capture.c.o
+.PHONY : tests/live_capture.o
 
 # target to build an object file
-test/server.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/test/server.c.o
-.PHONY : test/server.c.o
+tests/live_capture.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/tests/live_capture.c.o
+.PHONY : tests/live_capture.c.o
 
-test/server.i: test/server.c.i
-.PHONY : test/server.i
+tests/live_capture.i: tests/live_capture.c.i
+.PHONY : tests/live_capture.i
 
 # target to preprocess a source file
-test/server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/test/server.c.i
-.PHONY : test/server.c.i
+tests/live_capture.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/tests/live_capture.c.i
+.PHONY : tests/live_capture.c.i
 
-test/server.s: test/server.c.s
-.PHONY : test/server.s
+tests/live_capture.s: tests/live_capture.c.s
+.PHONY : tests/live_capture.s
 
 # target to generate assembly for a file
-test/server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/test/server.c.s
-.PHONY : test/server.c.s
+tests/live_capture.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/tests/live_capture.c.s
+.PHONY : tests/live_capture.c.s
+
+tests/server.o: tests/server.c.o
+.PHONY : tests/server.o
+
+# target to build an object file
+tests/server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/tests/server.c.o
+.PHONY : tests/server.c.o
+
+tests/server.i: tests/server.c.i
+.PHONY : tests/server.i
+
+# target to preprocess a source file
+tests/server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/tests/server.c.i
+.PHONY : tests/server.c.i
+
+tests/server.s: tests/server.c.s
+.PHONY : tests/server.s
+
+# target to generate assembly for a file
+tests/server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/tests/server.c.s
+.PHONY : tests/server.c.s
 
 # Help Target
 help:
@@ -199,13 +236,17 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... client"
+	@echo "... live_capture"
 	@echo "... server"
-	@echo "... test/client.o"
-	@echo "... test/client.i"
-	@echo "... test/client.s"
-	@echo "... test/server.o"
-	@echo "... test/server.i"
-	@echo "... test/server.s"
+	@echo "... tests/client.o"
+	@echo "... tests/client.i"
+	@echo "... tests/client.s"
+	@echo "... tests/live_capture.o"
+	@echo "... tests/live_capture.i"
+	@echo "... tests/live_capture.s"
+	@echo "... tests/server.o"
+	@echo "... tests/server.i"
+	@echo "... tests/server.s"
 .PHONY : help
 
 

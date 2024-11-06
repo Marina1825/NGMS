@@ -1,6 +1,7 @@
-CMakeFiles/client.dir/test/client.c.o: /home/marina/NGMS/test/client.c \
- /usr/include/stdc-predef.h /usr/include/zmq.h /usr/include/errno.h \
- /usr/include/features.h /usr/include/features-time64.h \
+CMakeFiles/client.dir/tests/client.c.o: \
+ /home/marina/4_Curs/NGMS/tests/client.c /usr/include/stdc-predef.h \
+ /usr/include/zmq.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \

@@ -1,4 +1,5 @@
-/home/marina/NGMS/build/CMakeFiles/client.dir
-/home/marina/NGMS/build/CMakeFiles/server.dir
-/home/marina/NGMS/build/CMakeFiles/edit_cache.dir
-/home/marina/NGMS/build/CMakeFiles/rebuild_cache.dir
+/home/marina/4_Curs/NGMS/build/CMakeFiles/client.dir
+/home/marina/4_Curs/NGMS/build/CMakeFiles/server.dir
+/home/marina/4_Curs/NGMS/build/CMakeFiles/live_capture.dir
+/home/marina/4_Curs/NGMS/build/CMakeFiles/edit_cache.dir
+/home/marina/4_Curs/NGMS/build/CMakeFiles/rebuild_cache.dir

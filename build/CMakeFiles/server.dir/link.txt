@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/server.dir/test/server.c.o -o server  -lzmq 
+/usr/bin/cc CMakeFiles/server.dir/tests/server.c.o -o server  -lzmq -lpcap 

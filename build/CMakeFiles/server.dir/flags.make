@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/usr/include/mit-krb5 -I/usr/include/pgm-5.3 -I/usr/include/libxml2
+C_INCLUDES = 
 
 C_FLAGS = -std=gnu99
 
