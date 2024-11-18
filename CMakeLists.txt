@@ -1,48 +1,67 @@
-#cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
+project(ZeroMQProject)
 
-# Название вашего проекта
-#project(Zero)
+# Установка libzmq
+execute_process(
+    COMMAND sudo sh -c "echo 'deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/network:messaging:zeromq:release-stable.list"
+    COMMAND curl -fsSL https://download.opensuse.org/repositories/network:messaging:zeromq:release-stable/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/network_messaging_zeromq_release-stable.gpg > /dev/null
+    COMMAND sudo apt update
+    COMMAND sudo apt install -y libzmq3-dev
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
-# Задаем стандарт для C
-#set(CMAKE_C_STANDARD 99)
+# Установка czmq
+execute_process(
+    COMMAND git clone https://github.com/zeromq/czmq.git
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
+execute_process(
+    COMMAND ./autogen.sh
+    COMMAND ./configure
+    COMMAND make check
+    COMMAND sudo make install
+    COMMAND sudo ldconfig
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/czmq
+)
 
-# Поиск ZeroMQ
-#find_package(PkgConfig REQUIRED)
-#pkg_check_modules(PC_ZMQ REQUIRED libzmq)
+# Установка libtool
+execute_process(
+    COMMAND sudo apt install -y libtool
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
-# Добавляем клиента и сервер
-#add_executable(client test/client.c)
-#add_executable(server test/server.c)
+# Установка libcap
+execute_process(
+    COMMAND sudo apt install -y libpcap-dev
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
-# Указываем библиотеку ZeroMQ клиенту и серверу
-#target_link_libraries(client ${PC_ZMQ_LIBRARIES})
-#target_link_libraries(server ${PC_ZMQ_LIBRARIES})
+set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/tests)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/src)
 
-# Включаем заголовочные файлы от ZeroMQ
-#target_include_directories(client PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
-#target_include_directories(server PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
-cmake_minimum_required(VERSION 3.22)
-project(MobileSystem)
-set(CMAKE_C_STANDARD 99)
-# find_package(PkgConfig REQUIRED)
-# pkg_check_modules(PC_ZMQ REQUIRED libzmq pcap)
+# Компиляция server.c и client.c
+add_executable(server ${SOURCE_DIR}/server.c)
+target_link_libraries(server zmq pcap)  
 
+add_executable(client ${SOURCE_DIR}/client.c)
+target_link_libraries(client zmq)
 
-# execute_process(
-#     # COMMAND sudo apt-get install libpcap-dev
-# )
+# Запуск server и client
+add_custom_target(run_server
+    COMMAND ./server
+    DEPENDS server
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
+)
 
+add_custom_target(run_client
+    COMMAND ./client
+    DEPENDS client
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
+)
 
-
-add_executable(client ./tests/client.c)
-target_link_libraries(client zmq pcap)
-add_executable(server ./tests/server.c)
-
-target_link_libraries(server zmq pcap)
-
-add_executable(live_capture ./tests/live_capture.c)
-target_link_libraries(live_capture zmq pcap)
-
-
-# target_include_directories(client PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
-# target_include_directories(server PUBLIC ${PC_ZMQ_INCLUDE_DIRS})
+add_custom_target(run_all
+    COMMAND ./server &
+    COMMAND ./client
+    DEPENDS server client
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
+)
