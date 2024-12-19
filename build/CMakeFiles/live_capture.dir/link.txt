@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/live_capture.dir/tests/live_capture.c.o -o live_capture  -lzmq -lpcap 

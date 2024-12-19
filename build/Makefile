@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marina/4_Curs/NGMS
+CMAKE_SOURCE_DIR = /home/marina/4_curs/NGMS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marina/4_Curs/NGMS/build
+CMAKE_BINARY_DIR = /home/marina/4_curs/NGMS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles /home/marina/4_Curs/NGMS/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_curs/NGMS/build/CMakeFiles /home/marina/4_curs/NGMS/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_Curs/NGMS/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marina/4_curs/NGMS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,115 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named client
+# Target rules for targets named tcp_proxy
 
 # Build rule for target.
-client: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
-.PHONY : client
+tcp_proxy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_proxy
+.PHONY : tcp_proxy
 
 # fast build rule for target.
-client/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-.PHONY : client/fast
+tcp_proxy/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_proxy.dir/build.make CMakeFiles/tcp_proxy.dir/build
+.PHONY : tcp_proxy/fast
 
-#=============================================================================
-# Target rules for targets named server
-
-# Build rule for target.
-server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
-.PHONY : server
-
-# fast build rule for target.
-server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-.PHONY : server/fast
-
-#=============================================================================
-# Target rules for targets named live_capture
-
-# Build rule for target.
-live_capture: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 live_capture
-.PHONY : live_capture
-
-# fast build rule for target.
-live_capture/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/build
-.PHONY : live_capture/fast
-
-tests/client.o: tests/client.c.o
-.PHONY : tests/client.o
+libmzmq/tcp_proxy.o: libmzmq/tcp_proxy.cpp.o
+.PHONY : libmzmq/tcp_proxy.o
 
 # target to build an object file
-tests/client.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/tests/client.c.o
-.PHONY : tests/client.c.o
+libmzmq/tcp_proxy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_proxy.dir/build.make CMakeFiles/tcp_proxy.dir/libmzmq/tcp_proxy.cpp.o
+.PHONY : libmzmq/tcp_proxy.cpp.o
 
-tests/client.i: tests/client.c.i
-.PHONY : tests/client.i
-
-# target to preprocess a source file
-tests/client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/tests/client.c.i
-.PHONY : tests/client.c.i
-
-tests/client.s: tests/client.c.s
-.PHONY : tests/client.s
-
-# target to generate assembly for a file
-tests/client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/tests/client.c.s
-.PHONY : tests/client.c.s
-
-tests/live_capture.o: tests/live_capture.c.o
-.PHONY : tests/live_capture.o
-
-# target to build an object file
-tests/live_capture.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/tests/live_capture.c.o
-.PHONY : tests/live_capture.c.o
-
-tests/live_capture.i: tests/live_capture.c.i
-.PHONY : tests/live_capture.i
+libmzmq/tcp_proxy.i: libmzmq/tcp_proxy.cpp.i
+.PHONY : libmzmq/tcp_proxy.i
 
 # target to preprocess a source file
-tests/live_capture.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/tests/live_capture.c.i
-.PHONY : tests/live_capture.c.i
+libmzmq/tcp_proxy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_proxy.dir/build.make CMakeFiles/tcp_proxy.dir/libmzmq/tcp_proxy.cpp.i
+.PHONY : libmzmq/tcp_proxy.cpp.i
 
-tests/live_capture.s: tests/live_capture.c.s
-.PHONY : tests/live_capture.s
-
-# target to generate assembly for a file
-tests/live_capture.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/live_capture.dir/build.make CMakeFiles/live_capture.dir/tests/live_capture.c.s
-.PHONY : tests/live_capture.c.s
-
-tests/server.o: tests/server.c.o
-.PHONY : tests/server.o
-
-# target to build an object file
-tests/server.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/tests/server.c.o
-.PHONY : tests/server.c.o
-
-tests/server.i: tests/server.c.i
-.PHONY : tests/server.i
-
-# target to preprocess a source file
-tests/server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/tests/server.c.i
-.PHONY : tests/server.c.i
-
-tests/server.s: tests/server.c.s
-.PHONY : tests/server.s
+libmzmq/tcp_proxy.s: libmzmq/tcp_proxy.cpp.s
+.PHONY : libmzmq/tcp_proxy.s
 
 # target to generate assembly for a file
-tests/server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/tests/server.c.s
-.PHONY : tests/server.c.s
+libmzmq/tcp_proxy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_proxy.dir/build.make CMakeFiles/tcp_proxy.dir/libmzmq/tcp_proxy.cpp.s
+.PHONY : libmzmq/tcp_proxy.cpp.s
 
 # Help Target
 help:
@@ -235,18 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... client"
-	@echo "... live_capture"
-	@echo "... server"
-	@echo "... tests/client.o"
-	@echo "... tests/client.i"
-	@echo "... tests/client.s"
-	@echo "... tests/live_capture.o"
-	@echo "... tests/live_capture.i"
-	@echo "... tests/live_capture.s"
-	@echo "... tests/server.o"
-	@echo "... tests/server.i"
-	@echo "... tests/server.s"
+	@echo "... tcp_proxy"
+	@echo "... libmzmq/tcp_proxy.o"
+	@echo "... libmzmq/tcp_proxy.i"
+	@echo "... libmzmq/tcp_proxy.s"
 .PHONY : help
 
 

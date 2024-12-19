@@ -1,4 +1,4 @@
-# Install script for directory: /home/marina/4_Curs/NGMS
+# Install script for directory: /home/marina/4_curs/NGMS
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/marina/4_Curs/NGMS/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/marina/4_curs/NGMS/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -3,8 +3,10 @@
 #include <zmq.h>
 #include <thread>
 #include <cstring>
+#include <cmath>
+#include <unistd.h>
 
-#define BUFFER_MAX 1024 * 1024
+#define BUFFER_MAX 1024 * 1024 * 2
 
 static bool run;
 std::mutex mutex_send_matlab;
@@ -18,31 +20,35 @@ enum class ARGV_CONSOLE {
     ARGV_MAX
 };
 
-void send_to_matlab(char *data, int size, void *socket_api) {
-    static char buffer[1000];
+void processing_matlab(char *data, int size_data, int size_send, int &size_recv, void *socket_api) {
     mutex_send_matlab.lock();
-    zmq_send(socket_api, data, size, 0);
-    zmq_recv(socket_api, buffer, sizeof(buffer), 0);
-    printf("msg from matlab: %s\n", buffer);
+    zmq_send(socket_api, data, size_send, 0);
+    size_recv = size_send;
+    char *data2 = new char[size_send];
+    memcpy(data2, data, size_send);
+    size_recv = zmq_recv(socket_api, data, size_data, 0);
     mutex_send_matlab.unlock();
 }   
 
+int iter = 0;
+
+double arr1_m[] = {10, 50, 100, 300, 500, 1000, 4000, 9000, 12000, 14000, 15000, 16000, 19000, 20000};
+int index1 = 0;
+
 void thread_proxy(void *zrecv, void *zsend, void *socket_api, int id) {
-    
     char buffer[BUFFER_MAX];
     int size;
+    int size_recv;
     printf("[%d] start\n", id);
     while(1) {
         memset(buffer, 0, sizeof(buffer));
         size = zmq_recv(zrecv, buffer, sizeof(buffer), 0);
-        
         if(size == -1) {
             continue;
         }
-        printf("[%d] send request[%d]...\n", id, size);
+        processing_matlab(buffer, BUFFER_MAX, size, size_recv, socket_api);
+        //printf("Buffer: %s\n", buffer);
         zmq_send(zsend, buffer, size, 0);
-        send_to_matlab(buffer, size, socket_api);
-        printf("[%d] end iter\n", id);
     }
 }
 
@@ -50,6 +56,7 @@ void thread_proxy_2(void *zrecv, void *zsend, void *socket_api, int id) {
     
     char buffer[BUFFER_MAX];
     int size;
+    int size_recv;
     printf("[%d] start\n", id);
     while(1) {
         memset(buffer, 0, sizeof(buffer));
@@ -57,19 +64,25 @@ void thread_proxy_2(void *zrecv, void *zsend, void *socket_api, int id) {
         if(size == -1) {
             continue;
         }
-        printf("[%d] send response[%d]...\n", id, size);
-        zmq_send(zrecv, buffer, size, 0);
-        send_to_matlab(buffer, size, socket_api);
-        printf("[%d] end iter\n", id);
+        processing_matlab(buffer, BUFFER_MAX, size, size_recv, socket_api);
 
+        //printf("Buffer: %s\n", buffer);
+        zmq_send(zrecv, buffer, size, 0);
     }
 }
+
 
 int main(int argc, char *argv[]){
 
     if(argc < static_cast<int>(ARGV_CONSOLE::ARGV_MAX) - 1) {
         printf("Error: not found argv\n");
         return -1;
+    }
+    {
+        FILE *file = fopen("../statistics/statistics.txt", "w");
+        if(file) {
+            fclose(file);
+        }
     }
     int port1 = std::stoi(argv[static_cast<int>(ARGV_CONSOLE::ARGV_PORT_1)]);
     int port2 = std::stoi(argv[static_cast<int>(ARGV_CONSOLE::ARGV_PORT_2)]);
@@ -103,7 +116,7 @@ int main(int argc, char *argv[]){
         perror("zmq_socket");
         return 1;
     }
-    printf("[Init]\n");
+    
     if(zmq_bind(socket_proxy1, addr_send_1.c_str()) != 0) {
         perror("zmq_bind");
         return 1;
@@ -112,6 +125,7 @@ int main(int argc, char *argv[]){
         perror("zmq_bind");
         return 1;
     }
+    printf("[Init]\n");
     std::thread thr1;
     std::thread thr2;
     std::thread thr3;
